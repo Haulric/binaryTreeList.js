@@ -1,9 +1,9 @@
 binaryTreeList.js
 =================
 
-Standalone list class based on the Binary Search Tree pattern to allow quick and easy sorting of huge lists.
+Standalone class based on the Binary Search Tree pattern. Allow to create, sort and paginate huge list with a minimal cost.
 
-This class doesn't require or prevent the use of any library.
+This class intend to be as portable as possible and doesn't require any external library.
 
 USAGE
 =====
