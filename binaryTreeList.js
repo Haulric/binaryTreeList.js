@@ -57,7 +57,7 @@ function BinaryTreeList(){
  */
 BinaryTreeList.prototype.setPagination = function(pageLength){
     if(!pageLength) this.pageLength = false;
-    else if(typeof pageLength == 'number')
+    else if(typeof pageLength === 'number')
 	this.pageLength = pageLength;
     else
 	console.error('[BinaryTreeList] setPagination require a number as parameter.');
@@ -75,15 +75,15 @@ BinaryTreeList.prototype.setOrderBy = function(key){
 	this.orderBy = false;
 	return this;
     }
-    if(typeof key == 'boolean'){
+    if(typeof key === 'boolean'){
 	if(typeof this.elements[0] != 'object'){
 	    this.orderBy = key;
 	    return this;
 	}
 	console.error("[BinaryTreeList] We can't order object directly.");
     }
-    if(typeof key == 'string'){
-	if(typeof this.elements[0] == 'object'){
+    if(typeof key === 'string'){
+	if(typeof this.elements[0] === 'object'){
 	    this.orderBy = key;
 	    return this;
 	}
@@ -100,7 +100,7 @@ BinaryTreeList.prototype.setOrderBy = function(key){
  * @parameter {Function} filter The filter to use when building this.list.
  */
 BinaryTreeList.prototype.setFilter = function(filter){
-    if(typeof filter == 'function') this.filter = filter;
+    if(typeof filter === 'function') this.filter = filter;
     else console.error('[BinaryTreeList] The filter need to be a function.');
     return this;
 };
@@ -172,13 +172,13 @@ BinaryTreeList.prototype.getElement = function(keyword){
     var len = this.elements.length;
     while(len){
 	len--;
-        if(typeof keyword == 'object' && typeof this.elements[i] == 'object'){
+        if(typeof keyword === 'object' && typeof this.elements[i] === 'object'){
             var check = true;
             for(var j in keyword)
                 if(this.elements[i][j] != keyword[j]) check = false;
             if(check) return this.elements[i];
         }
-        else if(this.elements[i] == keyword) return this.elements[i];
+        else if(this.elements[i] === keyword) return this.elements[i];
     }
 }
 
@@ -228,7 +228,7 @@ BinaryTreeList.prototype.countElement = function(keyword){
     while(len){
 	len--;
         check = false;
-        if(typeof keyword == 'object' && typeof this.elements[len] == 'object'){
+        if(typeof keyword === 'object' && typeof this.elements[len] === 'object'){
             check = true;
             for(var j in keyword)
                 if(this.elements[len][j] !== keyword[j]) check = false;
@@ -293,7 +293,7 @@ BinaryTreeList.prototype._growTree = function(parent,offset){
     }
 
     var parentValue, elementValue;
-    if(typeof this.orderBy == 'boolean'){
+    if(typeof this.orderBy === 'boolean'){
 	parentValue = this.elements[parent.offset];
 	elementValue = this.elements[offset];
     }else{
